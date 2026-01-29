@@ -179,38 +179,50 @@
             transition: transform 0.3s ease;
         }
 
-        /* States Banner */
+        /* States Marquee Banner */
         .states-banner {
             background: var(--black);
             color: var(--white);
-            padding: 4rem 3rem;
-            text-align: center;
+            padding: 2.5rem 0;
+            overflow: hidden;
         }
 
-        .states-content {
-            max-width: 1000px;
-            margin: 0 auto;
+        .marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
         }
 
-        .states-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gray-400);
-            margin-bottom: 1.5rem;
+        .marquee:hover {
+            animation-play-state: paused;
         }
 
-        .states-list {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            padding-right: 4rem;
+        }
+
+        .marquee-item {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
             font-weight: 500;
-            letter-spacing: -0.01em;
-            line-height: 1.6;
+            letter-spacing: -0.02em;
+            padding: 0 2rem;
         }
 
-        .states-list span {
+        .marquee-divider {
             color: var(--gray-600);
-            margin: 0 0.5rem;
+            font-weight: 300;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* What It Does Section */
@@ -652,11 +664,31 @@
 
     <!-- States Banner -->
     <section class="states-banner">
-        <div class="states-content">
-            <div class="states-label">What we help you access</div>
-            <p class="states-list">
-                Direct your drive <span>/</span> Dial in focus <span>/</span> Steady under pressure <span>/</span> Quiet the noise <span>/</span> Stay present & aware
-            </p>
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="marquee-item">Direct your drive</span>
+                <span class="marquee-divider">/</span>
+                <span class="marquee-item">Dial in focus</span>
+                <span class="marquee-divider">/</span>
+                <span class="marquee-item">Steady under pressure</span>
+                <span class="marquee-divider">/</span>
+                <span class="marquee-item">Quiet the noise</span>
+                <span class="marquee-divider">/</span>
+                <span class="marquee-item">Stay present & aware</span>
+                <span class="marquee-divider">/</span>
+            </div>
+            <div class="marquee-content">
+                <span class="marquee-item">Direct your drive</span>
+                <span class="marquee-divider">/</span>
+                <span class="marquee-item">Dial in focus</span>
+                <span class="marquee-divider">/</span>
+                <span class="marquee-item">Steady under pressure</span>
+                <span class="marquee-divider">/</span>
+                <span class="marquee-item">Quiet the noise</span>
+                <span class="marquee-divider">/</span>
+                <span class="marquee-item">Stay present & aware</span>
+                <span class="marquee-divider">/</span>
+            </div>
         </div>
     </section>
 
@@ -684,10 +716,7 @@
                     <div class="stat-number">1</div>
                     <div class="stat-label">Day of treatment</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">6+</div>
-                    <div class="stat-label">Months of results, on average</div>
-                </div>
+
                 <div class="stat">
                     <div class="stat-number">24–72</div>
                     <div class="stat-label">Hours until you feel it</div>
@@ -729,12 +758,12 @@
                 Transcranial magnetic stimulation (TMS) uses precisely calibrated magnetic pulses to modulate neural circuit activity. It's the same technology used in clinical settings for over 15 years—now applied with a personalized, accelerated protocol.
             </p>
             <p>
-                This is clinic-grade equipment administered by trained specialists. Non-invasive. No medication. No systemic side effects. Just targeted optimization at the neurological level.
+                This is clinic-grade equipment administered by trained specialists. Non-invasive. No systemic side effects. Just targeted optimization at the neurological level.
             </p>
             <div class="tech-badges">
                 <span class="tech-badge">FDA-Cleared</span>
                 <span class="tech-badge">Non-Invasive</span>
-                <span class="tech-badge">No Medication</span>
+
                 <span class="tech-badge">Physician-Supervised</span>
                 <span class="tech-badge">HSA/FSA Eligible</span>
             </div>
@@ -756,7 +785,7 @@
     <section class="cta-section">
         <div class="cta-content">
             <div class="cta-eyebrow">Exclusive to E Members</div>
-            <h2>Interested in learning more?</h2>
+            <h2>Ready to align your mind to your ambitions?</h2>
             <p>Limited spots available for this pilot program. Request access to schedule a consultation with our clinical team.</p>
             <div class="cta-buttons">
                 <a href="https://www.phariahealth.com/sign-up" class="btn-primary">
