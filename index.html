@@ -179,37 +179,38 @@
             transition: transform 0.3s ease;
         }
 
-        /* Credentials Banner */
-        .credentials {
+        /* States Banner */
+        .states-banner {
             background: var(--black);
             color: var(--white);
-            padding: 5rem 3rem;
-        }
-
-        .credentials-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
+            padding: 4rem 3rem;
             text-align: center;
         }
 
-        .credential {
-            padding: 0 1rem;
+        .states-content {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .credential-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 0.5rem;
-        }
-
-        .credential-label {
-            font-size: 0.85rem;
+        .states-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
             color: var(--gray-400);
-            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .states-list {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            line-height: 1.6;
+        }
+
+        .states-list span {
+            color: var(--gray-600);
+            margin: 0 0.5rem;
         }
 
         /* What It Does Section */
@@ -559,11 +560,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .credentials-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
             nav {
                 padding: 1rem 1.5rem;
             }
@@ -573,7 +569,7 @@
             .how-it-works,
             .technology,
             .cta-section,
-            .credentials,
+            .states-banner,
             .team {
                 padding-left: 1.5rem;
                 padding-right: 1.5rem;
@@ -594,10 +590,6 @@
 
             .hero h1 {
                 font-size: 3rem;
-            }
-
-            .credentials-content {
-                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -658,25 +650,13 @@
         </div>
     </section>
 
-    <!-- Credentials Banner -->
-    <section class="credentials">
-        <div class="credentials-content">
-            <div class="credential">
-                <div class="credential-value">FDA</div>
-                <div class="credential-label">Cleared technology since 2008</div>
-            </div>
-            <div class="credential">
-                <div class="credential-value">&lt;0.01%</div>
-                <div class="credential-label">Risk of adverse events</div>
-            </div>
-            <div class="credential">
-                <div class="credential-value">Stanford</div>
-                <div class="credential-label">Trained clinical team</div>
-            </div>
-            <div class="credential">
-                <div class="credential-value">15+</div>
-                <div class="credential-label">Years of clinical use</div>
-            </div>
+    <!-- States Banner -->
+    <section class="states-banner">
+        <div class="states-content">
+            <div class="states-label">What we help you access</div>
+            <p class="states-list">
+                Direct your drive <span>/</span> Dial in focus <span>/</span> Steady under pressure <span>/</span> Quiet the noise <span>/</span> Stay present & aware
+            </p>
         </div>
     </section>
 
@@ -821,7 +801,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.step, .stat, .what-it-does-content, .stats-card, .technology-content, .credential, .team-content').forEach(el => {
+        document.querySelectorAll('.step, .stat, .what-it-does-content, .stats-card, .technology-content, .team-content').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
