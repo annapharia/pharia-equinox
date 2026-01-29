@@ -179,34 +179,37 @@
             transition: transform 0.3s ease;
         }
 
-        /* Side Effects Banner */
-        .side-effects {
+        /* Credentials Banner */
+        .credentials {
             background: var(--black);
             color: var(--white);
-            padding: 4rem 3rem;
+            padding: 5rem 3rem;
+        }
+
+        .credentials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
             text-align: center;
         }
 
-        .side-effects h2 {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gray-400);
-            margin-bottom: 2rem;
+        .credential {
+            padding: 0 1rem;
         }
 
-        .side-effects-list {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            max-width: 900px;
-            margin: 0 auto;
-            line-height: 1.4;
+        .credential-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
         }
 
-        .side-effects-list span {
+        .credential-label {
+            font-size: 0.85rem;
             color: var(--gray-400);
+            line-height: 1.5;
         }
 
         /* What It Does Section */
@@ -394,10 +397,44 @@
             color: var(--gray-800);
         }
 
+        /* Clinical Team */
+        .team {
+            padding: 6rem 3rem;
+            background: var(--gray-50);
+        }
+
+        .team-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-eyebrow {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .team h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .team p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 10rem 3rem;
-            background: var(--gray-50);
+            background: var(--white);
             text-align: center;
         }
 
@@ -522,6 +559,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .credentials-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
             nav {
                 padding: 1rem 1.5rem;
             }
@@ -531,7 +573,8 @@
             .how-it-works,
             .technology,
             .cta-section,
-            .side-effects {
+            .credentials,
+            .team {
                 padding-left: 1.5rem;
                 padding-right: 1.5rem;
             }
@@ -551,6 +594,10 @@
 
             .hero h1 {
                 font-size: 3rem;
+            }
+
+            .credentials-content {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -600,7 +647,7 @@
                 <span>train your body.</span>
             </h1>
             <p class="hero-subtitle">
-                One day. Lasting months. FDA-cleared brain stimulation for those who refuse to settle for anything less than their full potential.
+                One day. Lasting months. FDA-cleared brain stimulation designed for high performers who demand precision in everything they do.
             </p>
             <a href="#how-it-works" class="hero-cta">
                 See how it works
@@ -611,12 +658,26 @@
         </div>
     </section>
 
-    <!-- Side Effects -->
-    <section class="side-effects">
-        <h2>Side effects may include</h2>
-        <p class="side-effects-list">
-            Sharper focus <span>/</span> Elevated mood <span>/</span> Quieter inner critic <span>/</span> Acting on instinct <span>/</span> Complete presence in the moment
-        </p>
+    <!-- Credentials Banner -->
+    <section class="credentials">
+        <div class="credentials-content">
+            <div class="credential">
+                <div class="credential-value">FDA</div>
+                <div class="credential-label">Cleared technology since 2008</div>
+            </div>
+            <div class="credential">
+                <div class="credential-value">&lt;0.01%</div>
+                <div class="credential-label">Risk of adverse events</div>
+            </div>
+            <div class="credential">
+                <div class="credential-value">Stanford</div>
+                <div class="credential-label">Trained clinical team</div>
+            </div>
+            <div class="credential">
+                <div class="credential-value">15+</div>
+                <div class="credential-label">Years of clinical use</div>
+            </div>
+        </div>
     </section>
 
     <!-- What It Does -->
@@ -628,7 +689,7 @@
                     You've optimized your nutrition. Dialed in your recovery. Pushed your physical limits with intention and precision.
                 </p>
                 <p>
-                    But what about the thing that drives it all? Your brain deserves the same level of investment—and now it can get it.
+                    But what about the thing that drives it all? Your brain deserves the same level of investment—with the same clinical rigor you'd expect from any elite training program.
                 </p>
                 <ul class="unlock-list">
                     <li>Sustained deep focus</li>
@@ -651,10 +712,6 @@
                     <div class="stat-number">24–72</div>
                     <div class="stat-label">Hours until you feel it</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years of safe clinical use</div>
-                </div>
             </div>
         </div>
     </section>
@@ -662,24 +719,24 @@
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
         <div class="how-it-works-header">
-            <h2>Simple. Fast. Effective.</h2>
-            <p>No pills. No ongoing appointments. Just targeted stimulation that works with your brain's natural circuitry.</p>
+            <h2>Clinically rigorous. Personally tailored.</h2>
+            <p>Every protocol is designed by board-certified psychiatrists and customized to your specific goals.</p>
         </div>
         <div class="steps">
             <div class="step">
                 <div class="step-number">01 — Evaluate</div>
-                <h3>Know your goals</h3>
-                <p>Meet with a Pharia neuropsychiatrist who understands high-performers. Define what optimization means for you—whether it's focus, mood, mental stamina, or all three.</p>
+                <h3>Comprehensive assessment</h3>
+                <p>Meet with a Pharia neuropsychiatrist for an in-depth evaluation. We assess your goals, review your health history, and determine if stimulation is the right fit—before anything else.</p>
             </div>
             <div class="step">
-                <div class="step-number">02 — Stimulate</div>
-                <h3>One day protocol</h3>
-                <p>Spend a day at a Pharia location. Brief stimulation sessions, spaced throughout the day, targeting the specific neural circuits that matter most for your goals.</p>
+                <div class="step-number">02 — Personalize</div>
+                <h3>Precision targeting</h3>
+                <p>Your protocol is designed around your specific neural targets—whether that's focus, mood, mental stamina, or a combination. No generic approaches.</p>
             </div>
             <div class="step">
-                <div class="step-number">03 — Perform</div>
-                <h3>Feel it within days</h3>
-                <p>Results typically emerge within 24–72 hours. No downtime, no recovery period. Get back to training, working, living—just better.</p>
+                <div class="step-number">03 — Optimize</div>
+                <h3>One day, lasting results</h3>
+                <p>Spend a day at a Pharia location with our clinical team. Brief stimulation sessions throughout the day. Results typically emerge within 24–72 hours, lasting months.</p>
             </div>
         </div>
     </section>
@@ -687,19 +744,31 @@
     <!-- Technology -->
     <section class="technology">
         <div class="technology-content">
-            <h2>The science is clear</h2>
+            <h2>The science behind it</h2>
             <p>
-                Transcranial magnetic stimulation (TMS) uses precisely targeted magnetic pulses to optimize neural circuit activity. Think of it as a workout for your brain's circuitry—encouraging healthier patterns without medication or invasive procedures.
+                Transcranial magnetic stimulation (TMS) uses precisely calibrated magnetic pulses to modulate neural circuit activity. It's the same technology used in clinical settings for over 15 years—now applied with a personalized, accelerated protocol.
             </p>
             <p>
-                This is clinic-grade technology, FDA-cleared since 2008, administered by a Stanford-trained clinical team. Far beyond any consumer device.
+                This is clinic-grade equipment administered by trained specialists. Non-invasive. No medication. No systemic side effects. Just targeted optimization at the neurological level.
             </p>
             <div class="tech-badges">
                 <span class="tech-badge">FDA-Cleared</span>
                 <span class="tech-badge">Non-Invasive</span>
                 <span class="tech-badge">No Medication</span>
+                <span class="tech-badge">Physician-Supervised</span>
                 <span class="tech-badge">HSA/FSA Eligible</span>
             </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team">
+        <div class="team-content">
+            <div class="team-eyebrow">Your Clinical Team</div>
+            <h2>Led by Stanford-trained specialists</h2>
+            <p>
+                Your care is overseen by Dr. David Carreon, a board-certified psychiatrist with over a decade of experience specializing in TMS and neuromodulation. He founded one of the nation's leading TMS treatment and research centers and has conducted research at Stanford's Etkin Neuroscience Lab focusing on the physiology of psychiatric disorders.
+            </p>
         </div>
     </section>
 
@@ -707,8 +776,8 @@
     <section class="cta-section">
         <div class="cta-content">
             <div class="cta-eyebrow">Exclusive to E Members</div>
-            <h2>Ready to unlock your mind's full capacity?</h2>
-            <p>Limited spots available for this pilot program. As an E by Equinox member, you have first access.</p>
+            <h2>Interested in learning more?</h2>
+            <p>Limited spots available for this pilot program. Request access to schedule a consultation with our clinical team.</p>
             <div class="cta-buttons">
                 <a href="https://www.phariahealth.com/sign-up" class="btn-primary">
                     Request Access
@@ -752,7 +821,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.step, .stat, .what-it-does-content, .stats-card, .technology-content').forEach(el => {
+        document.querySelectorAll('.step, .stat, .what-it-does-content, .stats-card, .technology-content, .credential, .team-content').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
