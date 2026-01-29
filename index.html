@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharia Health × E by Equinox | Exclusive Member Program</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #1a1a1a;
+            --warm-gray: #2a2a28;
+            --stone: #8a8578;
+            --sand: #c4bba8;
+            --cream: #f5f3ef;
+            --white: #fafaf9;
+            --gold: #b8a369;
+            --gold-light: #d4c48a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--black);
+            color: var(--cream);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* Subtle grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-brand span {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--stone);
+        }
+
+        .nav-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--cream);
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 24px;
+            background: var(--stone);
+            opacity: 0.4;
+        }
+
+        nav a {
+            color: var(--sand);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184,163,105,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(184,163,105,0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid rgba(184,163,105,0.3);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--stone);
+            max-width: 520px;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.1rem 2.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(184,163,105,0.3);
+        }
+
+        .hero-cta svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--stone);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--stone), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { transform: scaleY(1); opacity: 1; }
+            50% { transform: scaleY(0.5); opacity: 0.5; }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 8rem 4rem;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--charcoal);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            color: var(--sand);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .visual-card {
+            background: linear-gradient(145deg, var(--warm-gray) 0%, var(--charcoal) 100%);
+            border: 1px solid rgba(184,163,105,0.15);
+            border-radius: 4px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+        }
+
+        .visual-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--cream);
+        }
+
+        .visual-card ul {
+            list-style: none;
+        }
+
+        .visual-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(138,133,120,0.15);
+            color: var(--sand);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .visual-card li::before {
+            content: '→';
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .visual-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--black);
+        }
+
+        .steps-container {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(138,133,120,0.15);
+            position: relative;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+            opacity: 0.6;
+        }
+
+        .step-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--cream);
+        }
+
+        .step-content p {
+            color: var(--stone);
+            font-size: 1rem;
+            max-width: 600px;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: linear-gradient(180deg, var(--charcoal) 0%, var(--black) 100%);
+        }
+
+        .benefits-intro {
+            max-width: 700px;
+            margin-bottom: 5rem;
+        }
+
+        .benefits-intro p {
+            font-size: 1.2rem;
+            color: var(--sand);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+        }
+
+        .benefit-card {
+            background: rgba(42,42,40,0.5);
+            border: 1px solid rgba(184,163,105,0.1);
+            border-radius: 4px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: rgba(184,163,105,0.3);
+            transform: translateY(-4px);
+            background: rgba(42,42,40,0.8);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(184,163,105,0.15) 0%, rgba(184,163,105,0.05) 100%);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--gold);
+        }
+
+        .benefit-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--cream);
+        }
+
+        .benefit-card p {
+            color: var(--stone);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(180deg, var(--charcoal) 0%, var(--black) 100%);
+            text-align: center;
+            padding: 10rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(184,163,105,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content .section-title {
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            color: var(--stone);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(184,163,105,0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2.5rem;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(184,163,105,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 4rem;
+            border-top: 1px solid rgba(138,133,120,0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+        }
+
+        footer p {
+            color: var(--stone);
+            font-size: 0.8rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--stone);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            section {
+                padding: 6rem 2rem;
+            }
+
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                grid-template-columns: 60px 1fr;
+                gap: 2rem;
+            }
+
+            .step-number {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-brand {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-brand span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">
+            <div class="nav-logos">
+                <span class="nav-logo">Pharia</span>
+                <div class="nav-divider"></div>
+                <span class="nav-logo" style="font-weight: 500; letter-spacing: 0.15em;">E</span>
+            </div>
+            <span>Exclusive Partnership</span>
+        </div>
+        <a href="#learn-more">Learn More</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span>E by Equinox Members Only</span>
+        </div>
+        <h1>Access Your Mind's<br><em>True Capacity</em></h1>
+        <p class="hero-subtitle">
+            An exclusive partnership bringing FDA-cleared brain optimization to E by Equinox's most discerning members.
+        </p>
+        <a href="#learn-more" class="hero-cta">
+            Explore the Program
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+        <div class="scroll-indicator">
+            Discover
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="learn-more">
+        <div class="about-grid">
+            <div class="about-content">
+                <div class="section-label">The Partnership</div>
+                <h2 class="section-title">Peak physical performance<br>deserves peak mental clarity</h2>
+                <p>
+                    You've invested in the most elevated fitness experience. Now, Pharia Health and E by Equinox are introducing an exclusive pathway to optimize what matters most—your mind.
+                </p>
+                <p>
+                    Using FDA-cleared transcranial magnetic stimulation (TMS), Pharia delivers personalized, one-day protocols designed to enhance focus, elevate mood, and quiet the mental noise that holds you back from your best self.
+                </p>
+            </div>
+            <div class="about-visual">
+                <div class="visual-card">
+                    <h3>What Pharia Targets</h3>
+                    <ul>
+                        <li>Mental fog and lack of clarity</li>
+                        <li>Low mood and motivation</li>
+                        <li>Difficulty sustaining focus</li>
+                        <li>Overactive inner critic</li>
+                        <li>Stress and anxiety patterns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-label">The Process</div>
+        <h2 class="section-title">A streamlined path to your best mind</h2>
+        
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Personalized Evaluation</h3>
+                    <p>Your journey begins with a comprehensive assessment with a Pharia neuropsychiatrist. We understand your goals, blockers, and what optimal performance means for you.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>One-Day Protocol</h3>
+                    <p>Experience your personalized stimulation day at a Pharia location. Multiple brief sessions, administered by expert technicians, targeting your specific neural pathways.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Lasting Results</h3>
+                    <p>Feel the effects within days. Most people experience benefits lasting six months or more, with ongoing support and outcomes tracking from your Pharia team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="section-label">The Advantages</div>
+        <h2 class="section-title">Why this matters for E Members</h2>
+        <div class="benefits-intro">
+            <p>You already pursue physical excellence with uncompromising standards. This is the neural equivalent—optimizing your brain's circuitry with the same precision and intentionality.</p>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <h3>Rapid & Non-Invasive</h3>
+                <p>One day of treatment. No medication. No recovery time. Feel results within 24-72 hours while maintaining your training schedule.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>FDA-Cleared Technology</h3>
+                <p>Transcranial magnetic stimulation has been safely used since 2008. Clinic-grade precision far beyond any consumer device.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <h3>Physician-Led Care</h3>
+                <p>Board-certified psychiatrists and Stanford-trained specialists guide every step. Your optimization is in expert hands.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                        <path d="M12 16v-4"/>
+                        <path d="M12 8h.01"/>
+                    </svg>
+                </div>
+                <h3>Complements Everything</h3>
+                <p>Works alongside your existing training, nutrition, and wellness practices. Enhance your current routine, don't replace it.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <path d="M22 4L12 14.01l-3-3"/>
+                    </svg>
+                </div>
+                <h3>Measurable Outcomes</h3>
+                <p>Ongoing tracking and follow-ups ensure you're seeing the results you sought. Data-driven refinement, not guesswork.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M12 2v4"/>
+                        <path d="M12 18v4"/>
+                        <path d="M4.93 4.93l2.83 2.83"/>
+                        <path d="M16.24 16.24l2.83 2.83"/>
+                        <path d="M2 12h4"/>
+                        <path d="M18 12h4"/>
+                        <path d="M4.93 19.07l2.83-2.83"/>
+                        <path d="M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                </div>
+                <h3>HSA/FSA Eligible</h3>
+                <p>Investment in your neural health qualifies for health savings accounts, making optimization more accessible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <div class="section-label" style="justify-content: center;">Begin Your Journey</div>
+            <h2 class="section-title">Ready to take control of how you feel?</h2>
+            <p>As an E by Equinox member, you have exclusive access to this pilot program. Limited spots available.</p>
+            <div class="cta-buttons">
+                <a href="https://www.phariahealth.com/sign-up" class="btn-primary">
+                    Request Access
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="https://www.phariahealth.com" class="btn-secondary">
+                    Learn More About Pharia
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">Pharia Health × E by Equinox</div>
+                <p>An exclusive partnership for premium members</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.phariahealth.com">Pharia Health</a>
+                <a href="https://www.phariahealth.com/faq">FAQ</a>
+                <a href="https://www.phariahealth.com/the-science">The Science</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.step, .benefit-card, .visual-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
