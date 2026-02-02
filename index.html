@@ -35,7 +35,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--white);
             color: var(--black);
-            line-height: 1.6;
+            line-height: 1.35;
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
         }
@@ -82,13 +82,12 @@
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 500;
-            border-radius: 100px;
+            border-radius: 0;
             transition: all 0.2s ease;
         }
 
         .nav-cta:hover {
             background: var(--gray-800);
-            transform: scale(1.02);
         }
 
         /* Hero Section */
@@ -100,13 +99,27 @@
             padding: 8rem 3rem 6rem;
             position: relative;
             overflow: hidden;
-            background: var(--gray-50);
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            z-index: 0;
         }
 
         .hero-content {
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-eyebrow {
@@ -114,7 +127,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--gray-600);
+            color: var(--gray-400);
             margin-bottom: 2rem;
             display: flex;
             align-items: center;
@@ -142,14 +155,14 @@
         }
 
         .hero h1 .outline {
-            -webkit-text-stroke: 1.5px var(--black);
+            -webkit-text-stroke: 1.5px var(--white);
             color: transparent;
         }
 
         .hero-subtitle {
             font-size: 1.25rem;
-            color: var(--gray-600);
-            max-width: 500px;
+            color: rgba(255,255,255,0.7);
+            max-width: 540px;
             margin-bottom: 3rem;
             line-height: 1.7;
         }
@@ -159,18 +172,19 @@
             align-items: center;
             gap: 0.75rem;
             padding: 1rem 2rem;
-            background: var(--black);
-            color: var(--white);
+            background: var(--white);
+            color: var(--black);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            border-radius: 100px;
+            border-radius: 0;
             transition: all 0.3s ease;
         }
 
         .hero-cta:hover {
             gap: 1rem;
             padding-right: 1.75rem;
+            background: var(--gray-200);
         }
 
         .hero-cta svg {
@@ -225,84 +239,98 @@
             }
         }
 
-        /* What It Does Section */
-        .what-it-does {
+        /* Partnership Intro */
+        .partnership {
             padding: 8rem 3rem;
             background: var(--white);
         }
 
-        .what-it-does-grid {
+        .partnership-content {
             max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8rem;
-            align-items: start;
         }
 
-        .what-it-does-content h2 {
+        .partnership h2 {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.03em;
-            line-height: 1.1;
+            line-height: 1.0;
             margin-bottom: 2rem;
         }
 
-        .what-it-does-content p {
-            font-size: 1.1rem;
+        .partnership p {
+            font-size: 1.15rem;
             color: var(--gray-600);
-            line-height: 1.8;
+            line-height: 1.55;
+            max-width: 650px;
             margin-bottom: 1.5rem;
         }
 
-        .unlock-list {
-            list-style: none;
-            margin-top: 3rem;
+        .partnership .btn-secondary {
+            margin-top: 1.5rem;
+            display: inline-flex;
         }
 
-        .unlock-list li {
-            padding: 1.25rem 0;
-            border-bottom: 1px solid var(--gray-200);
-            font-size: 1.1rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .unlock-list li::before {
-            content: '+';
-            font-family: 'Space Mono', monospace;
-            font-size: 1.25rem;
-            color: var(--accent);
-        }
-
-        /* Stats */
-        .stats-card {
+        /* Benefits Cards */
+        .benefits {
+            padding: 8rem 3rem;
             background: var(--gray-50);
-            padding: 3rem;
-            border-radius: 16px;
         }
 
-        .stat {
-            margin-bottom: 2.5rem;
+        .benefits-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
         }
 
-        .stat:last-child {
-            margin-bottom: 0;
+        .benefits h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
         }
 
-        .stat-number {
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1;
-            margin-bottom: 0.5rem;
+        .benefits-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
-        .stat-label {
+        .benefit-card {
+            padding: 2.5rem;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 0;
+            transition: all 0.35s ease;
+            cursor: default;
+        }
+
+        .benefit-card:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            transition: color 0.35s ease;
+        }
+
+        .benefit-card:hover h3 {
+            color: var(--white);
+        }
+
+        .benefit-card p {
             font-size: 0.95rem;
             color: var(--gray-600);
+            line-height: 1.55;
+        }
+
+        .benefit-card:hover p {
+            color: var(--gray-400);
         }
 
         /* How It Works */
@@ -341,8 +369,7 @@
         .step {
             padding: 2.5rem;
             background: var(--gray-800);
-            border-radius: 16px;
-            position: relative;
+            border-radius: 0;
         }
 
         .step-number {
@@ -364,7 +391,7 @@
         .step p {
             color: var(--gray-400);
             font-size: 0.95rem;
-            line-height: 1.7;
+            line-height: 1.55;
         }
 
         /* The Technology */
@@ -374,40 +401,35 @@
         }
 
         .technology-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            text-align: center;
         }
 
         .technology h2 {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
             letter-spacing: -0.03em;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
         }
 
-        .technology p {
-            font-size: 1.15rem;
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .science-block h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+        }
+
+        .science-block p {
+            font-size: 0.95rem;
             color: var(--gray-600);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-
-        .tech-badge {
-            padding: 0.75rem 1.5rem;
-            background: var(--gray-100);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--gray-800);
+            line-height: 1.55;
         }
 
         /* Clinical Team */
@@ -441,7 +463,7 @@
         .team p {
             font-size: 1.1rem;
             color: var(--gray-600);
-            line-height: 1.8;
+            line-height: 1.55;
         }
 
         /* CTA Section */
@@ -496,13 +518,12 @@
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            border-radius: 100px;
+            border-radius: 0;
             transition: all 0.2s ease;
         }
 
         .btn-primary:hover {
             background: var(--gray-800);
-            transform: scale(1.02);
         }
 
         .btn-secondary {
@@ -511,18 +532,17 @@
             gap: 0.5rem;
             padding: 1rem 2rem;
             background: transparent;
-            border: 1px solid var(--gray-300);
+            border: 1px solid var(--gray-400);
             color: var(--black);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            border-radius: 100px;
+            border-radius: 0;
             transition: all 0.2s ease;
         }
 
         .btn-secondary:hover {
             border-color: var(--black);
-            background: var(--gray-100);
         }
 
         /* Footer */
@@ -563,9 +583,12 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .what-it-does-grid {
+            .benefits-grid {
                 grid-template-columns: 1fr;
-                gap: 4rem;
+            }
+
+            .science-grid {
+                grid-template-columns: 1fr;
             }
 
             .steps {
@@ -577,7 +600,8 @@
             }
 
             .hero,
-            .what-it-does,
+            .partnership,
+            .benefits,
             .how-it-works,
             .technology,
             .cta-section,
@@ -642,6 +666,9 @@
 
     <!-- Hero -->
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="Final%20Video.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
             <div class="hero-eyebrow">E by Equinox Members</div>
             <h1>
@@ -651,7 +678,7 @@
                 <span>train your body.</span>
             </h1>
             <p class="hero-subtitle">
-                One day. Lasting months. FDA-cleared brain stimulation designed for high performers who demand precision in everything they do.
+                One day designed for high performers who demand precision in everything they work on — including their minds. FDA-cleared and led by world-class clinicians.
             </p>
             <a href="#how-it-works" class="hero-cta">
                 See how it works
@@ -692,35 +719,49 @@
         </div>
     </section>
 
-    <!-- What It Does -->
-    <section class="what-it-does">
-        <div class="what-it-does-grid">
-            <div class="what-it-does-content">
-                <h2>Your body has a trainer. Now your brain does too.</h2>
-                <p>
-                    You've optimized your nutrition. Dialed in your recovery. Pushed your physical limits with intention and precision.
-                </p>
-                <p>
-                    But what about the thing that drives it all? Your brain deserves the same level of investment—with the same clinical rigor you'd expect from any elite training program.
-                </p>
-                <ul class="unlock-list">
-                    <li>Sustained deep focus</li>
-                    <li>Faster, clearer decision-making</li>
-                    <li>Elevated baseline mood</li>
-                    <li>Greater mental endurance</li>
-                    <li>Reduced mental noise</li>
-                </ul>
-            </div>
-            <div class="stats-card">
-                <div class="stat">
-                    <div class="stat-number">1</div>
-                    <div class="stat-label">Day of treatment</div>
-                </div>
+    <!-- Partnership Intro -->
+    <section class="partnership">
+        <div class="partnership-content">
+            <h2>Your body has a trainer. Now your brain does too.</h2>
+            <p>
+                You've optimized your nutrition. Dialed in your recovery. Pushed your physical limits with intention and precision.
+            </p>
+            <p>
+                But what about the thing that drives it all? Your brain deserves the same level of investment — with the same clinical rigor you'd expect from any elite training program.
+            </p>
+            <p>
+                E by Equinox is partnering with Pharia Health to bring precision brain stimulation to its members. Pharia's clinical team specializes in FDA-cleared neuromodulation for high-performing individuals — optimizing focus, mood, and mental resilience through a single-day protocol.
+            </p>
+            <a href="https://www.phariahealth.com" target="_blank" rel="noopener" class="btn-secondary">
+                Learn more about Pharia Health
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+            </a>
+        </div>
+    </section>
 
-                <div class="stat">
-                    <div class="stat-number">24–72</div>
-                    <div class="stat-label">Hours until you feel it</div>
-                </div>
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="benefits-header">
+            <h2>What Clients Experience</h2>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Enhanced Focus + Clarity</h3>
+                <p>Cut through mental fog and maintain sustained attention on demanding tasks. Make decisions with greater confidence and speed.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Reduced Mental Noise</h3>
+                <p>Quiet the inner critic and rumination loops that drain energy and distract from what matters most.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Improved Stress Resilience</h3>
+                <p>Build capacity for high-pressure situations. Stay calm and perform when the stakes are highest.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Greater Cognitive Endurance</h3>
+                <p>By enhancing ease and control in the mind, peak performance becomes your default state — not something you have to force.</p>
             </div>
         </div>
     </section>
@@ -733,39 +774,44 @@
         </div>
         <div class="steps">
             <div class="step">
-                <div class="step-number">01 — Evaluate</div>
-                <h3>Comprehensive assessment</h3>
-                <p>Meet with a Pharia neuropsychiatrist for an in-depth evaluation. We assess your goals, review your health history, and determine if stimulation is the right fit—before anything else.</p>
+                <div class="step-number">01</div>
+                <h3>Evaluation & protocol personalization</h3>
+                <p>Meet with a Pharia neuropsychiatrist for an in-depth evaluation. We assess your goals, review your health history, and design a protocol around your specific neural targets.</p>
             </div>
             <div class="step">
-                <div class="step-number">02 — Personalize</div>
-                <h3>Precision targeting</h3>
-                <p>Your protocol is designed around your specific neural targets—whether that's focus, mood, mental stamina, or a combination. No generic approaches.</p>
+                <div class="step-number">02</div>
+                <h3>One day, precise shifts</h3>
+                <p>Spend a day at a Pharia location with our clinical team. Brief stimulation sessions throughout the day, targeting the specific circuits that matter most for your goals.</p>
             </div>
             <div class="step">
-                <div class="step-number">03 — Optimize</div>
-                <h3>One day, lasting results</h3>
-                <p>Spend a day at a Pharia location with our clinical team. Brief stimulation sessions throughout the day. Results typically emerge within 24–72 hours, lasting months.</p>
+                <div class="step-number">03</div>
+                <h3>Ongoing tracking</h3>
+                <p>We follow up to track your progress and fine-tune as needed. Results typically emerge within 24–72 hours, with continued optimization over time.</p>
             </div>
         </div>
     </section>
 
     <!-- Technology -->
-    <section class="technology">
+    <section class="technology" id="the-science">
         <div class="technology-content">
-            <h2>The science behind it</h2>
-            <p>
-                Transcranial magnetic stimulation (TMS) uses precisely calibrated magnetic pulses to modulate neural circuit activity. It's the same technology used in clinical settings for over 15 years—now applied with a personalized, accelerated protocol.
-            </p>
-            <p>
-                This is clinic-grade equipment administered by trained specialists. Non-invasive. No systemic side effects. Just targeted optimization at the neurological level.
-            </p>
-            <div class="tech-badges">
-                <span class="tech-badge">FDA-Cleared</span>
-                <span class="tech-badge">Non-Invasive</span>
-
-                <span class="tech-badge">Physician-Supervised</span>
-                <span class="tech-badge">HSA/FSA Eligible</span>
+            <h2>The science</h2>
+            <div class="science-grid">
+                <div class="science-block">
+                    <h3>Targeted Brain Stimulation</h3>
+                    <p>Transcranial Magnetic Stimulation (TMS) uses precisely targeted magnetic pulses to optimize brain activity in neural networks tied to focus, presence, and emotional reactivity. Adapted from 15 years of clinical use for higher-functioning individuals who want more control over how they think, feel, and perform.</p>
+                </div>
+                <div class="science-block">
+                    <h3>One-Day Protocol, Rapid Results</h3>
+                    <p>Skip the weekly appointments. Our accelerated protocol delivers a full treatment course in a single day — with most people feeling shifts within 24 hours.</p>
+                </div>
+                <div class="science-block">
+                    <h3>Non-Invasive</h3>
+                    <p>No surgery, no downtime. TMS works through magnetic fields that pass safely through the skull to target specific brain regions with precision.</p>
+                </div>
+                <div class="science-block">
+                    <h3>FDA-Cleared Since 2008</h3>
+                    <p>First cleared by the FDA in 2008, TMS has over 15 years of safe clinical use. Pharia has adapted it specifically for high-performers to dial in their mental performance.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -794,7 +840,7 @@
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </a>
-                <a href="https://www.phariahealth.com/the-science" class="btn-secondary">
+                <a href="#the-science" class="btn-secondary">
                     Explore the Science
                 </a>
             </div>
@@ -806,10 +852,8 @@
         <div class="footer-content">
             <div class="footer-brand">Pharia × E by Equinox</div>
             <div class="footer-links">
-                <a href="https://www.phariahealth.com">Pharia Health</a>
-                <a href="https://www.phariahealth.com/faq">FAQ</a>
-                <a href="https://www.phariahealth.com/the-science">The Science</a>
-                <a href="https://www.phariahealth.com/about">Team</a>
+                <a href="https://www.phariahealth.com" target="_blank" rel="noopener">Pharia Health</a>
+                <a href="#the-science">The Science</a>
             </div>
         </div>
     </footer>
@@ -830,7 +874,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.step, .stat, .what-it-does-content, .stats-card, .technology-content, .team-content').forEach(el => {
+        document.querySelectorAll('.step, .benefit-card, .partnership-content, .technology-content, .team-content, .science-block').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
