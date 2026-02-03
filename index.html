@@ -72,15 +72,24 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
+        }
+
+        .nav-logo {
+            height: 30px;
+            width: auto;
+        }
+
+        .nav-divider {
+            color: var(--gray-400);
+            font-weight: 300;
+            font-size: 1.25rem;
+        }
+
+        .nav-partner {
             font-weight: 600;
             font-size: 1rem;
             letter-spacing: -0.02em;
-        }
-
-        .nav-brand .divider {
-            color: var(--gray-400);
-            font-weight: 300;
         }
 
         .nav-cta {
@@ -150,11 +159,13 @@
         }
 
         .hero h1 {
-            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 7.5vw, 6rem);
             font-weight: 600;
             line-height: 0.95;
-            letter-spacing: -0.04em;
-            margin-bottom: 3rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
             max-width: 900px;
         }
 
@@ -168,11 +179,11 @@
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: rgba(255,255,255,0.7);
             max-width: 540px;
             margin-bottom: 3rem;
-            line-height: 1.7;
+            line-height: 1.5;
         }
 
         .hero-cta {
@@ -430,14 +441,13 @@
             color: var(--gray-400);
             font-size: 0.95rem;
             line-height: 1.55;
-            max-height: 0;
+            min-height: 120px;
             overflow: hidden;
             opacity: 0;
             transition: all 0.4s ease;
         }
 
         .step.active p {
-            max-height: 200px;
             opacity: 1;
             color: var(--gray-600);
         }
@@ -474,8 +484,16 @@
         }
 
         .technology-content {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .technology-text {
+            padding-right: 2rem;
         }
 
         .technology h2 {
@@ -485,12 +503,22 @@
             text-transform: uppercase;
             letter-spacing: 0.02em;
             margin-bottom: 3rem;
-            text-align: center;
+        }
+
+        .technology-image {
+            aspect-ratio: 5 / 5;
+            overflow: hidden;
+        }
+
+        .technology-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .science-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            flex-direction: column;
             gap: 2.5rem;
         }
 
@@ -507,17 +535,35 @@
             line-height: 1.55;
         }
 
-        /* Clinical Team */
-        .team {
-            padding: 6rem 3rem;
-            background: var(--black);
+        .science-block a {
+            color: var(--gray-400);
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        .science-block a:hover {
             color: var(--white);
         }
 
+        /* Clinical Team */
+        .team {
+            padding: 6rem 3rem 8rem;
+            background: var(--black);
+            color: var(--white);
+            border-top: 1px solid var(--gray-800);
+        }
+
         .team-content {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .team-title {
+            /* Left column */
         }
 
         .team-eyebrow {
@@ -535,13 +581,60 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.02em;
-            margin-bottom: 1.5rem;
+            line-height: 1.1;
         }
 
-        .team p {
+        .team-text p {
             font-size: 1.1rem;
             color: var(--gray-400);
-            line-height: 1.55;
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 3rem;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .testimonials-header {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+        }
+
+        .testimonials h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            border: 1px solid var(--gray-600);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-quote {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .testimonial-attribution {
+            font-size: 0.85rem;
+            color: var(--gray-400);
         }
 
         /* CTA Section */
@@ -667,8 +760,18 @@
                 grid-template-columns: 1fr;
             }
 
-            .science-grid {
+            .technology-content {
                 grid-template-columns: 1fr;
+            }
+
+            .technology-image {
+                order: -1;
+                max-height: 400px;
+            }
+
+            .team-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .steps-carousel {
@@ -679,8 +782,39 @@
                 flex: 0 0 auto;
             }
 
+            .testimonials-carousel {
+                flex-direction: column;
+            }
+
+            .testimonial {
+                flex: 0 0 auto;
+                border-left: none;
+                border-top: 1px solid var(--gray-800);
+            }
+
+            .testimonial:first-child {
+                border-top: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
             nav {
                 padding: 1rem 1.5rem;
+            }
+
+            .nav-brand {
+                flex-wrap: wrap;
+            }
+
+            .nav-divider {
+                display: none;
+            }
+
+            .nav-partner {
+                width: 100%;
+                font-size: 0.85rem;
             }
 
             .hero,
@@ -741,9 +875,9 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-brand">
-            <span>Pharia</span>
-            <span class="divider">×</span>
-            <span>E by Equinox</span>
+            <img src="Pharia-Digital-Landscape-B%20(1).svg" alt="Pharia" class="nav-logo">
+            <span class="nav-divider">×</span>
+            <span class="nav-partner">E by Equinox</span>
         </div>
         <a href="https://www.phariahealth.com/sign-up" class="nav-cta">Get Access</a>
     </nav>
@@ -754,7 +888,7 @@
             <source src="Final%20Video.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
-            <div class="hero-eyebrow">E by Equinox Members</div>
+            <div class="hero-eyebrow">Exclusively for E by Equinox Members</div>
             <h1>
                 <span>Train your</span>
                 <span class="outline">mind</span>
@@ -806,7 +940,7 @@
     <!-- Partnership Intro -->
     <section class="partnership">
         <div class="partnership-content">
-            <h2>Your body has a trainer. Now your brain does too.</h2>
+            <h2>Your body has a trainer.<br>Now your brain does too.</h2>
             <p>
                 You've optimized your nutrition. Dialed in your recovery. Pushed your physical limits with intention and precision.
             </p>
@@ -859,20 +993,20 @@
         <div class="steps-carousel">
             <div class="step active" data-step="0">
                 <div class="step-number">01</div>
-                <h3>Evaluation & Protocol Personalization</h3>
+                <h3>Clinician Evaluation, Protocol Personalization</h3>
                 <p>Meet with a Pharia neuropsychiatrist for an in-depth evaluation. We assess your goals, review your health history, and design a protocol around your specific neural targets.</p>
                 <div class="step-progress"><div class="step-progress-bar"></div></div>
             </div>
             <div class="step" data-step="1">
                 <div class="step-number">02</div>
-                <h3>One Day, Precise Shifts</h3>
+                <h3>One-Day Protocol, Rapid Shift</h3>
                 <p>Spend a day at a Pharia location with our clinical team. Brief stimulation sessions throughout the day, targeting the specific circuits that matter most for your goals.</p>
                 <div class="step-progress"><div class="step-progress-bar"></div></div>
             </div>
             <div class="step" data-step="2">
                 <div class="step-number">03</div>
-                <h3>Ongoing Tracking</h3>
-                <p>We follow up to track your progress and fine-tune as needed. Results typically emerge within 24–72 hours, with continued optimization over time.</p>
+                <h3>Ongoing Tracking, Continued Optimization</h3>
+                <p>We follow up to track your progress and fine-tune as needed. Results typically emerge within 24–72 hours. We follow up at 1 week, 1 month, and offer options to continue optimization over time.</p>
                 <div class="step-progress"><div class="step-progress-bar"></div></div>
             </div>
         </div>
@@ -881,24 +1015,29 @@
     <!-- Technology -->
     <section class="technology" id="the-science">
         <div class="technology-content">
-            <h2>The science</h2>
-            <div class="science-grid">
-                <div class="science-block">
-                    <h3>Targeted Brain Stimulation</h3>
-                    <p>Transcranial Magnetic Stimulation (TMS) uses precisely targeted magnetic pulses to optimize brain activity in neural networks tied to focus, presence, and emotional reactivity. Adapted from 15 years of clinical use for higher-functioning individuals who want more control over how they think, feel, and perform.</p>
+            <div class="technology-text">
+                <h2>The Science</h2>
+                <div class="science-grid">
+                    <div class="science-block">
+                        <h3>Targeted Brain Stimulation</h3>
+                        <p>Transcranial Magnetic Stimulation (TMS) uses precisely targeted magnetic pulses to optimize brain activity in neural networks tied to focus, presence, and emotional reactivity.</p>
+                    </div>
+                    <div class="science-block">
+                        <h3>Non-Invasive</h3>
+                        <p>No surgery, no downtime. TMS works through magnetic fields that pass safely through the skull to target specific brain regions with precision.</p>
+                    </div>
+                    <div class="science-block">
+                        <h3>Safe & Well-Tolerated</h3>
+                        <p>First cleared by the FDA in 2008, TMS has over 15 years of safe clinical use. TMS is well-tolerated. Most people don't have side effects. If they do, it's mild and improves quickly. Risk of adverse events is extremely rare. <a href="https://my.clevelandclinic.org/health/treatments/17827-transcranial-magnetic-stimulation-tms#treatment-details" target="_blank" rel="noopener">(Cleveland Clinic)</a></p>
+                    </div>
+                    <div class="science-block">
+                        <h3>Rapid & Personalized</h3>
+                        <p>Pharia has adapted TMS specifically for high-performers to dial in their mental performance. Our personalized, rapid protocols target the networks relevant to your goals in a single day.</p>
+                    </div>
                 </div>
-                <div class="science-block">
-                    <h3>One-Day Protocol, Rapid Results</h3>
-                    <p>Skip the weekly appointments. Our accelerated protocol delivers a full treatment course in a single day — with most people feeling shifts within 24 hours.</p>
-                </div>
-                <div class="science-block">
-                    <h3>Non-Invasive</h3>
-                    <p>No surgery, no downtime. TMS works through magnetic fields that pass safely through the skull to target specific brain regions with precision.</p>
-                </div>
-                <div class="science-block">
-                    <h3>FDA-Cleared Since 2008</h3>
-                    <p>First cleared by the FDA in 2008, TMS has over 15 years of safe clinical use. Pharia has adapted it specifically for high-performers to dial in their mental performance.</p>
-                </div>
+            </div>
+            <div class="technology-image">
+                <img src="Pharia%20still%201.png" alt="TMS Treatment">
             </div>
         </div>
     </section>
@@ -906,11 +1045,35 @@
     <!-- Team -->
     <section class="team">
         <div class="team-content">
-            <div class="team-eyebrow">Your Clinical Team</div>
-            <h2>Led by Stanford-trained specialists</h2>
-            <p>
-                Your care is overseen by Dr. David Carreon, a board-certified psychiatrist with over a decade of experience specializing in TMS and neuromodulation. He founded one of the nation's leading TMS treatment and research centers and has conducted research at Stanford's Etkin Neuroscience Lab focusing on the physiology of psychiatric disorders.
-            </p>
+            <div class="team-title">
+                <h2>Led by World-Class Specialists</h2>
+            </div>
+            <div class="team-text">
+                <p>
+                    Your care is overseen by board-certified psychiatrists with over a decade of experience in TMS and neuromodulation. We've taken the experience from conducting thousands of clinical treatments and adapted it for high-performers who want cutting-edge, science-backed tools to improve their minds.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-header">
+            <h2>Over 75% of Clients Feel the Shift</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"It's almost like I've gotten a remote control to turn down the noise when I need to... it's given me more control over how I choose to engage with those patterns."</p>
+                <div class="testimonial-attribution">Pharia Client — Founder</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I'm making decisions at work with more clarity. I'm able to wake up and not have a million thoughts rush in — I can just get started with my day, enjoy it, and get things done."</p>
+                <div class="testimonial-attribution">Pharia Client — Executive</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I'm so much more focused, ruminating a lot less. My 8sleep loves it. My sleep scores went from 80s to 90s."</p>
+                <div class="testimonial-attribution">Pharia Client — Executive Assistant</div>
+            </div>
         </div>
     </section>
 
@@ -919,7 +1082,7 @@
         <div class="cta-content">
             <div class="cta-eyebrow">Exclusive to E Members</div>
             <h2>Ready to align your mind to your ambitions?</h2>
-            <p>Limited spots available for this pilot program. Request access to schedule a consultation with our clinical team.</p>
+            <p>Limited spots available. Request access by scheduling a call with the Pharia team.</p>
             <div class="cta-buttons">
                 <a href="https://www.phariahealth.com/sign-up" class="btn-primary">
                     Request Access
@@ -968,13 +1131,14 @@
             observer.observe(el);
         });
 
-        // Steps Carousel Auto-play
+        // Steps Carousel Auto-play (starts when section is in view)
         const steps = document.querySelectorAll('.step');
+        const stepsSection = document.querySelector('.how-it-works');
         const duration = 5000; // 5 seconds per step
         let currentStep = 0;
         let progress = 0;
-        let intervalId;
-        let progressId;
+        let progressId = null;
+        let carouselStarted = false;
 
         function setActiveStep(index) {
             steps.forEach((step, i) => {
@@ -999,7 +1163,11 @@
         }
 
         function startCarousel() {
-            progressId = setInterval(animateProgress, 50);
+            if (!carouselStarted) {
+                carouselStarted = true;
+                setActiveStep(0);
+                progressId = setInterval(animateProgress, 50);
+            }
         }
 
         // Click to select step
@@ -1009,9 +1177,19 @@
             });
         });
 
-        // Start the carousel
-        setActiveStep(0);
-        startCarousel();
+        // Start carousel when section comes into view
+        const carouselObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCarousel();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        carouselObserver.observe(stepsSection);
+
+        // Initialize first step as active (but don't start timer)
+        steps[0].classList.add('active');
     </script>
 </body>
 </html>
